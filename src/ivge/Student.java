@@ -2,7 +2,7 @@ package ivge;
 
 import java.util.Arrays;
 
-public class Student implements Cloneable {
+public class Student{
     private String name = "";
     private Integer number = 1;
     private char letter = 'a';
