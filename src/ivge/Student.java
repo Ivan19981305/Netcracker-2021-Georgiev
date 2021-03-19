@@ -1,9 +1,9 @@
 package ivge;
 
 public class Student {
-    String name = "";
-    int number = 1;
-    char letter = 'a';
+    private String name = "";
+    private int number = 1;
+    private char letter = 'a';
 
     Student(String name)
     {
@@ -20,5 +20,29 @@ public class Student {
         this.name = name;
         this.number = number;
         this.letter = letter;
+    }
+
+    public char getLetter() {
+        return letter;
+    }
+
+    public void setLetter(char letter) {
+        this.letter = letter;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
