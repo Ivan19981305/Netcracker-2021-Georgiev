@@ -3,8 +3,14 @@ package ivge;
 public class Main {
 
     public static void main(String[] args) {
+        Car car = new Car();
 
-        Planet planetEarth = new Planet();
-        Planet planetEarth2 = new Planet();
+        car.move();
+        car.refuel();
+
+        Plane plane = new Plane();
+
+        plane.move();
+        plane.refuel();
     }
 }
