@@ -1,6 +1,6 @@
 package ivge;
 
-public class Electrocar extends car{
+public class Electrocar extends Car{
     @Override
     public void move() {
         System.out.println("Electrocar moving");
