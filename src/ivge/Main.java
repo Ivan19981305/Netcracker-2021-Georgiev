@@ -12,5 +12,10 @@ public class Main {
 
         plane.move();
         plane.refuel();
+
+        Electrocar car2 = new Electrocar();
+
+        car2.move();
+        car2.refuel();
     }
 }
