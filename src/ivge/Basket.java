@@ -2,18 +2,36 @@ package ivge;
 
 public class Basket<T> {
     private T[] basket;
-    private int length = 0;
 
     public Basket(T[] basket) {
         this.basket = basket;
-        this.length = basket.length;
     }
 
-    public int get() {
-        return length;
+    public T[] getBasket() {
+        return basket;
     }
 
-    public void add(T item) {
-        basket[length++] = item;
+    public void setBasket(T[] basket) {
+        this.basket = basket;
+    }
+
+    public int countNotNull(){
+        int count = 0;
+        for (T element:
+             basket) {
+            if (element != null)
+                count++;
+        }
+        return count;
+    }
+
+    public int sumNotNull(){
+        int sum = 0;
+        for (T element:
+                basket) {
+            if (element != null)
+                sum += element.size();
+        }
+        return sum;
     }
 }
