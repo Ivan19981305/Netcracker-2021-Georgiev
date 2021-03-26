@@ -2,13 +2,18 @@ package ivge;
 
 import java.util.Objects;
 
-public class Color {
+public class Color implements Cloneable{
     private int id;
     private String name;
 
     public Color(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    @Override
+    public Color clone() throws CloneNotSupportedException {
+        return (Color) super.clone();
     }
 
     @Override

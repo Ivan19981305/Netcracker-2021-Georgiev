@@ -9,7 +9,7 @@ public class Car {
 
     public Car(String mark, Color color, int year) {
         this.mark = mark;
-        this.color = color;
+        this.color = color.clone();
         this.year = year;
     }
 
