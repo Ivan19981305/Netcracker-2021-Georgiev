@@ -1,9 +1,14 @@
 package ivge;
 
-public class Something<T, V, K> {
+import java.io.Serializable;
+
+public class Something<T extends Comparable, V extends Animal & Serializable, K extends Number> {
     private T first;
     private V second;
     private K third;
+
+    public Something() {
+    }
 
     public Something(T first, V second, K third) {
         this.first = first;
