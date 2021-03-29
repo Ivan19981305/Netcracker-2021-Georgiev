@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Something<Integer, SerializableAnimal, Double> something = new Something( 15, new SerializableAnimal(), 54.2);
+        Something<Integer, ? extends Animal, Double> something = new Something( 15, new SerializableAnimal(), 54.2);
 
 
         System.out.println(something.getFirst());
