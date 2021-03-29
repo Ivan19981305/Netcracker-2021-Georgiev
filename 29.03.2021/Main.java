@@ -11,6 +11,7 @@ public class Main {
         List<Cat> listCat = new ArrayList<>();
         List<Integer> listInteger = new ArrayList<>();
 
+        System.out.println(listCat.getClass() == listString.getClass());
         System.out.println(listCat.getClass() == listInteger.getClass());
     }
 }
