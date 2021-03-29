@@ -1,16 +1,16 @@
 package ivge;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Something<Integer, ? extends Animal, Double> something = new Something( 15, new SerializableAnimal(), 54.2);
+        List<String> listString = new ArrayList<>();
+        List<Cat> listCat = new ArrayList<>();
+        List<Integer> listInteger = new ArrayList<>();
 
-
-        System.out.println(something.getFirst());
-        System.out.println(something.getSecond());
-        System.out.println(something.getThird());
-
-        something.getClassNames();
+        System.out.println(listCat.getClass() == listInteger.getClass());
     }
 }
