@@ -33,5 +33,20 @@ public class Main {
         System.out.println(pupils);
         pupils.sort(Pupil::compareTo);
         System.out.println(pupils);
+
+
+        ArrayList<Humanable> humanables = new ArrayList<>();
+        humanables.add(student1);
+        humanables.add(student2);
+        humanables.add(pupil2);
+        humanables.add(student3);
+        humanables.add(pupil1);
+        humanables.add(pupil3);
+
+        System.out.println(humanables);
+        humanables.sort(((o1, o2) -> {
+            return o1.compareTo(o2);
+        }));
+        System.out.println(humanables);
     }
 }

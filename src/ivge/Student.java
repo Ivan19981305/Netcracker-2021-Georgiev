@@ -29,4 +29,13 @@ public class Student implements Comparable<Student>, Humanable{
     public int compareTo(Student o) {
         return this.marksSum() - o.marksSum();
     }
+
+    public int compareTo(Pupil o) {
+        return 1;
+    }
+
+    @Override
+    public int compareTo(Humanable o2) {
+        return 0;
+    }
 }

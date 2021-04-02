@@ -28,4 +28,13 @@ public class Pupil implements Comparable<Pupil>, Humanable {
     public int compareTo(Pupil o) {
         return this.marksSum() - o.marksSum();
     }
+
+    public int compareTo(Student o) {
+        return -1;
+    }
+
+    @Override
+    public int compareTo(Humanable o) {
+        return 0;
+    }
 }
