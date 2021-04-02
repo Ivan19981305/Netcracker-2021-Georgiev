@@ -35,7 +35,10 @@ public class Student implements Comparable<Student>, Humanable{
     }
 
     @Override
-    public int compareTo(Humanable o2) {
-        return 0;
+    public int compareTo(Humanable o) {
+        if (this.getClass() == o.getClass())
+            return this.compareTo((Student) o);
+        else
+            return this.compareTo((Pupil) o);
     }
 }
