@@ -6,30 +6,47 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<String> shop = new ArrayList<>();
+        Student student1 = new Student(new int[]{3, 2, 5});
+        Student student2 = new Student(new int[]{1, 2, 5});
+        Student student3 = new Student(new int[]{5, 5, 5});
+        ArrayList<Student> students = new ArrayList<>();
 
-        Parent parent = new Parent();
-        Child child = new Child();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
 
-        System.out.println(shop);
+        System.out.println(students);
+        students.sort(Student::compareTo);
+        System.out.println(students);
 
-        parent.consumerAdd.accept(shop);
-        System.out.println(shop);
 
-        child.consumerAdd.accept(shop);
-        System.out.println(shop);
+        Pupil pupil1 = new Pupil(new int[]{3, 2, 5});
+        Pupil pupil2 = new Pupil(new int[]{1, 2, 5});
+        Pupil pupil3 = new Pupil(new int[]{5, 5, 5});
 
-        parent.consumerGet.accept(shop);
-        System.out.println(shop);
+        ArrayList<Pupil> pupils = new ArrayList<>();
 
-        child.consumerAdd.accept(shop);
-        System.out.println(shop);
+        pupils.add(pupil1);
+        pupils.add(pupil2);
+        pupils.add(pupil3);
 
-        /*
-[]
-[Phone]
-[Phone, Pic]
-[Pic]
-[Pic, Pic]*/
+        System.out.println(pupils);
+        pupils.sort(Pupil::compareTo);
+        System.out.println(pupils);
+
+
+        ArrayList<Humanable> humanables = new ArrayList<>();
+        humanables.add(student1);
+        humanables.add(student2);
+        humanables.add(pupil2);
+        humanables.add(student3);
+        humanables.add(pupil1);
+        humanables.add(pupil3);
+
+        System.out.println(humanables);
+        humanables.sort(((o1, o2) -> {
+            return o1.compareTo(o2);
+        }));
+        System.out.println(humanables);
     }
 }
