@@ -1,16 +1,19 @@
 package ivge;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
-        while (true) {
-            TrashClass trash = new TrashClass();
-        }
-    }
+        LinkedList<String> trash = new LinkedList<String>();
 
-    static class TrashClass{
-        ArrayList<Integer> trashField = new ArrayList<Integer>(30);
+        while (true) {
+            for(int i = 0; i < 100; i++)
+                trash.add(new String("Trash"));
+            for(int i = 0; i < 10; i++)
+                trash.remove();
+            if (trash.size() > 2000000)
+                trash.clear();
+        }
     }
 }
