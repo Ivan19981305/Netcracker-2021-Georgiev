@@ -3,15 +3,14 @@ package ivge;
 import java.util.*;
 
 public enum Some {
-    QUEUE(new PriorityQueue<Element>()),
-    DEQUE(new ArrayDeque<Element>()),
-    LIST(new ArrayList<Element>()),
-    SET(new HashSet<Element>()),
-    STACK(new Stack<Element>());
+    QUEUE(new PriorityQueue<>()),
+    DEQUE(new ArrayDeque<>()),
+    LIST(new ArrayList<>()),
+    SET(new HashSet<>());
 
-    private Collection collection;
+    private Collection<Element> collection;
 
-    Some(Collection collection) {
+    Some(Collection<Element> collection) {
         this.collection = collection;
     }
 }
