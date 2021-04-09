@@ -29,17 +29,11 @@ public class Main {
     }
 
     public static HashSet<Integer> xor(HashSet<Integer> set1, HashSet<Integer> set2){
-        HashSet<Integer> ans = new HashSet<>();
-        for (Integer set2Element:
-                set2) {
-            if (!set1.contains(set2Element))
-                ans.add(set2Element);
-        }
-        for (Integer set1Element:
-                set1) {
-            if (!set2.contains(set1Element))
-                ans.add(set1Element);
-        }
-        return ans;
+        HashSet<Integer> ans1 = new HashSet<>(set1);
+        ans1.retainAll(set2);
+
+        HashSet<Integer> ans2 = new HashSet<>(set2);
+        ans2.retainAll(set1);
+        return union(ans1, ans2);
     }
 }
