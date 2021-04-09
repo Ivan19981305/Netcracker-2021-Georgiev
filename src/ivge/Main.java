@@ -30,10 +30,10 @@ public class Main {
 
     public static HashSet<Integer> xor(HashSet<Integer> set1, HashSet<Integer> set2){
         HashSet<Integer> ans1 = new HashSet<>(set1);
-        ans1.retainAll(set2);
+        ans1.removeAll(set2);
 
         HashSet<Integer> ans2 = new HashSet<>(set2);
-        ans2.retainAll(set1);
+        ans2.removeAll(set1);
         return union(ans1, ans2);
     }
 }
