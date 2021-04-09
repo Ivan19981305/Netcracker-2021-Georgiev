@@ -2,38 +2,73 @@ package ivge;
 
 import java.lang.invoke.SwitchPoint;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 
 public class Main {
 
     public static void main(String[] args){
-        HashSet<Integer> set1 = new HashSet<Integer>(){{
-            for (int i = 0; i < 10; i++)
-                add(i);
+        Deque<Element> queue = new ArrayDeque<>();
+
+        ArrayList<Computer> arrayList = new ArrayList<Computer>(){{
+            for (int i = 0; i < 100; i++)
+                add(new Computer());
         }};
-        HashSet<Integer> set2 = new HashSet<Integer>(){{
-            for (int i = 0; i < 10; i++)
-                add(i + 5);
-        }};
+        arrayList.forEach(System.out::println);
 
-        union(set1,set2).forEach(System.out::println);
-        xor(set1,set2).forEach(System.out::println);
+        while (!(((Supplier<Boolean>) () -> {
+            for (Computer computer : arrayList)
+                if (computer.isComplete())
+                    return Boolean.TRUE;
+            return Boolean.FALSE;
+        }).get())) {
+            for (int i = 0; i < 1000; i++)
+                queue.addFirst(((Supplier<Element>) () -> {
+                    int a = (int) (Math.random() * 4);
+                    Element ans = new Hard(-1);
+                    switch (a) {
+                        case 0:
+                            ans = new Hard((int) (Math.random() * 100));
+                            break;
+                        case 1:
+                            ans = new Ram((int) (Math.random() * 100));
+                            break;
+                        case 2:
+                            ans = new MotherBoard((int) (Math.random() * 100));
+                            break;
+                        case 3:
+                            ans = new Box((int) (Math.random() * 100));
+                            break;
+                    }
+                    return ans;
+                }).get());
 
-    }
 
-    public static HashSet<Integer> union(HashSet<Integer> set1, HashSet<Integer> set2){
-        HashSet<Integer> ans = new HashSet<>(set1);
-        ans.addAll(set2);
-        return ans;
-    }
+            for (int i = 0; i < 1000; i++) {
+                Element element = queue.pollLast();
+                //бесполезная проверка
+                assert element != null;
+                String a = element.getClass().getName();
 
-    public static HashSet<Integer> xor(HashSet<Integer> set1, HashSet<Integer> set2){
-        HashSet<Integer> ans1 = new HashSet<>(set1);
-        ans1.removeAll(set2);
+                switch (a) {
+                    case "ivge.Hard":
+                        arrayList.get(element.getId()).setHard((Hard) element);
+                        break;
+                    case "ivge.Ram":
+                        arrayList.get(element.getId()).setRam((Ram) element);
+                        break;
+                    case "ivge.MotherBoard":
+                        arrayList.get(element.getId()).setMotherBoard((MotherBoard) element);
+                        break;
+                    case "ivge.Box":
+                        arrayList.get(element.getId()).setBox((Box) element);
+                        break;
+                }
+                ;
+            }
 
-        HashSet<Integer> ans2 = new HashSet<>(set2);
-        ans2.removeAll(set1);
-        return union(ans1, ans2);
+            System.out.println(arrayList);
+        }
     }
 }
