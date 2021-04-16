@@ -9,7 +9,7 @@ public class Main {
             FileInputStream fileInputStream = new FileInputStream("test.txt");
             int someByte;
             while ((someByte = fileInputStream.read()) != -1)
-                System.out.print(someByte);
+                System.out.print((char) someByte);
         } catch (IOException e) {
             e.printStackTrace();
         }
