@@ -10,9 +10,9 @@
         <module name="16.04.2021" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="7">
-      <module name="16.04.2021" target="1.5" />
-      <module name="19.04.2021" target="1.5" />
+    <bytecodeTargetLevel target="9">
+      <module name="16.04.2021" target="9" />
+      <module name="19.04.2021" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>
