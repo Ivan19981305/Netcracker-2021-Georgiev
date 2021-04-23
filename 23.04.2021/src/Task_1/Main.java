@@ -17,16 +17,14 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 while (true) {
-                    synchronized (hashMap) {
                         int randomSmth = (int) (Math.random() * 3);
                         int randomSmthPut = (int) (Math.random() * 3);
                         hashMap.get(hashMapKeys[randomSmth]).getAndIncrement();
                         hashMap.get(hashMapKeys[randomSmthPut]).getAndDecrement();
-                        try {
-                            hashMap.wait(100);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                    try {
+                        Thread.currentThread().sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
 
                 }
@@ -34,14 +32,13 @@ public class Main {
         }
         new Thread(() -> {
             while (true) {
-                synchronized (hashMap) {
-                    for (AtomicInteger value : hashMap.values())
-                        System.out.println(value);
-                    try {
-                        hashMap.wait(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
+                for (AtomicInteger value : hashMap.values())
+                    System.out.println(value);
+                try {
+                    Thread.currentThread().sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
 
             }
