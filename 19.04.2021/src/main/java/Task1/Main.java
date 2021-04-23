@@ -20,6 +20,7 @@ public class Main {
 
             car1 = objectMapper.readValue(inputStream, Car.class);
 
+            
             System.out.println(car1);
         }
     }

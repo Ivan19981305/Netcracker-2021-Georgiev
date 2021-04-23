@@ -1,20 +1,24 @@
 package ivge;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
 
     public static void main(String[] args){
-        TreeMap<String, Integer> users = new TreeMap<>();
+        int[] randoms = new int[100];
+        for (int i = 0; i < 100; i++) {
+            randoms[i] = (int) (Math.random() * 1000);
+        }
 
-        users.put("Иван Иванов", 1984);
-        users.put("Андрей Иванов", 1984);
-        users.put("Ярослав Иванов", 1984);
-        users.put("Илья Иванов", 1984);
+        List<Integer> boxedFilteredRandoms = new ArrayList<>();
 
-        for (String key : users.keySet())
-            System.out.println(key);
+        for (int i = 0; i < randoms.length; i++) {
+            if (randoms[i] % 2 == 0)
+                boxedFilteredRandoms.add(randoms[i]);
+        }
     }
 }
