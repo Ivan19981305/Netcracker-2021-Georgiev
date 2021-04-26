@@ -19,6 +19,7 @@ public class Main {
                 while (true) {
                         int randomSmth = (int) (Math.random() * 3);
                         int randomSmthPut = (int) (Math.random() * 3);
+
                         hashMap.get(hashMapKeys[randomSmth]).getAndIncrement();
                         hashMap.get(hashMapKeys[randomSmthPut]).getAndDecrement();
                     try {
