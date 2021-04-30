@@ -8,7 +8,7 @@ public class Main {
         String contextPath = ClassLoader.getSystemResource("context.xml").toString();
         ApplicationContext context = new ClassPathXmlApplicationContext(contextPath);
 
-        context.getBean(Man.class);
+        System.out.println(context.getBean(Man.class).toString());
     }
 }
 
@@ -25,5 +25,14 @@ class Man{
 
     public void initMethod(){
         patronymic = "patronymic";
+    }
+
+    @Override
+    public String toString() {
+        return "Man{" +
+                "surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                '}';
     }
 }
