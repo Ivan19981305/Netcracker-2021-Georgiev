@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="28.04.2021" />
+        <module name="30.04.2021" />
         <module name="19.04.2021" />
         <module name="26.04.2021" />
         <module name="16.04.2021" />
@@ -16,7 +17,8 @@
       <module name="16.04.2021" target="1.5" />
       <module name="19.04.2021" target="7" />
       <module name="26.04.2021" target="1.5" />
-      <module name="28.04.2021" target="7" />
+      <module name="28.04.2021" target="1.5" />
+      <module name="30.04.2021" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
