@@ -1,8 +1,9 @@
 package Task_2;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-@Component
+@Lazy
 public class Owner {
     String name;
 

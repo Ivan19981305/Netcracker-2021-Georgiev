@@ -4,19 +4,26 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext applicationContext =
-                new AnnotationConfigApplicationContext(JavaConfig.class);
-        for (String str : applicationContext.getBeanDefinitionNames()){
+        String contextPath = ClassLoader.getSystemResource("context.xml").toString();
+        ApplicationContext context = new ClassPathXmlApplicationContext(contextPath);
+        for (String str : context.getBeanDefinitionNames()){
             System.out.println(str);
         }
-        System.out.println(applicationContext.getBean(Dog.class));
+        System.out.println(context.getBean(Dog.class));
+        System.out.println(context.getBean(Owner.class));
+        /*
+        Dog{owner=null, name='DOGE'}
+        Owner{name='null'}
+         */
     }
 }
 
+/*
 @Configuration
 class JavaConfig{
 
@@ -34,3 +41,5 @@ class JavaConfig{
         return dog;
     }
 }
+ */
+

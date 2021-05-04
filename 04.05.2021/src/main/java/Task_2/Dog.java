@@ -1,15 +1,20 @@
 package Task_2;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-@Component
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.annotation.Lazy;
+
 public class Dog {
     Owner owner;
     String name;
 
     public Dog(String name) {
         this.name = name;
+    }
+
+    @Lazy
+    public Dog(Owner owner) {
+        this.owner = owner;
     }
 
     @Override
@@ -24,7 +29,7 @@ public class Dog {
         return owner;
     }
 
-    @Autowired
+
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
@@ -35,7 +40,7 @@ public class Dog {
     public String getName() {
         return name;
     }
-
+    @Required
     public void setName(String name) {
         this.name = name;
     }
