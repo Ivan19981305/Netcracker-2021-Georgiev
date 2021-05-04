@@ -13,6 +13,7 @@ public class Main {
         for (String str : applicationContext.getBeanDefinitionNames()){
             System.out.println(str);
         }
+        System.out.println(applicationContext.getBean(Test.class).getName());
     }
 }
 
